@@ -1,4 +1,3 @@
-{:main ex02.core
- :output-to "resources/public/js/compiled/app.js"
+{:output-to "resources/public/js/compiled/app.js"
  :optimizations :advanced
  :pretty-print false}
