@@ -1,0 +1,27 @@
+{:deps {org.clojure/clojure {:mvn/version "1.10.1-beta2"},
+        org.clojure/clojurescript {:mvn/version "1.10.439"},
+        javax.xml.bind/jaxb-api {:mvn/version "2.4.0-b180830.0359"},
+        thi.ng/strf {:mvn/version "0.2.2"},
+        reagent {:mvn/version "0.5.1"}}
+ :paths ["src" "resources"]
+ :aliases
+ {:depify {:extra-deps {org.clojure/clojure {:mvn/version "1.9.0"}
+                        depify              {:git/url "https://github.com/hagmonk/depify"
+                                             :sha     "04329744872890711dbba8939a16e9987dd33bb3"}}
+           :main-opts  ["-m" "depify.project"]}
+  :zprint {:extra-deps {org.clojure/clojure {:mvn/version "1.9.0"}
+                        zprint              {:mvn/version "0.4.9"}}
+           :main-opts  ["-m" "zprint.main"]}
+  :cljs-dev {:extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.0-SNAPSHOT"}
+                          org.clojure/tools.nrepl {:mvn/version "0.2.12"}
+                          cider/cider-nrepl {:mvn/version "0.22.0-beta1"}
+                          nrepl {:mvn/version "0.6.0"}
+                          cider/piggieback {:mvn/version "0.4.1"}
+                          thunknyc/profile {:mvn/version "0.5.2"}
+                          cljfmt {:mvn/version "0.5.7" :exclusions [org.clojure/clojurescript]}
+                          com.cemerick/pomegranate {:mvn/version "1.1.0"}
+                          mvxcvi/puget {:mvn/version "1.0.2"}
+                          cider/orchard {:mvn/version "0.3.1"}
+                          cljs-tooling {:mvn/version "0.3.0"}}
+             :main-opts ["-m" "nrepl.cmdline" "--middleware"
+                         "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}}}
