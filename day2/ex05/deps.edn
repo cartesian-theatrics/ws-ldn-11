@@ -2,7 +2,7 @@
         org.clojure/clojurescript {:mvn/version "1.10.439"},
         javax.xml.bind/jaxb-api {:mvn/version "2.4.0-b180830.0359"},
         thi.ng/strf {:mvn/version "0.2.2"},
-        reagent {:mvn/version "0.5.1"}}
+        reagent {:mvn/version "0.8.1"}}
  :paths ["src" "resources"]
  :aliases
  {:depify {:extra-deps {org.clojure/clojure {:mvn/version "1.9.0"}

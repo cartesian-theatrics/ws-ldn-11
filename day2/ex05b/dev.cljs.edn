@@ -1,10 +1,11 @@
 {:main ex05b.core
+ :asset-path "js/compiled/out"
+ :output-to "resources/public/js/compiled/app.js"
+ :output-dir "resources/public/js/compiled/out"
  :optimizations :none
- :pretty-print  true
- :asset-path "resources/public/js"
- :output-to  "resources/public/js/dummy.js"
- #_:modules       #_{:cljs-base  {:output-to "resources/public/js/base.js"}
-                 :app        {:output-to "resources/public/js/compiled/app.js"
-                              :entries   #{"ex05b.core"}}
-                 :meshworker {:output-to  "resources/public/js/meshworker.js"
-                              :entries    #{"meshworker"}}}}
+ :pretty-print true
+ :modules {:cljs-base
+           {:output-to "resources/public/js/compiled/out/base.js"}
+           :app
+           {:output-to "resources/public/js/compiled/app.js"
+            :entries   #{ex05b.core}}}}

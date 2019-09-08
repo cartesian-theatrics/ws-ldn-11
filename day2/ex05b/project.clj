@@ -3,8 +3,9 @@
   :url "http://example.com/FIXME"
 
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.8.51"]
-                 [thi.ng/geom "0.0.1178-SNAPSHOT"]
+                 [org.clojure/clojurescript "1.10.520"]
+                 [thi.ng/geom "1.0.0-RC3"]
+                 [javax.xml.bind/jaxb-api "2.4.0-b180830.0359"]
                  [reagent "0.5.1"]]
 
   :plugins      [[lein-figwheel "0.5.4-3"]

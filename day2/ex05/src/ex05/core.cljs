@@ -66,9 +66,9 @@
     (set! (.-onmessage worker) update-worker-state)
     (reset! app {:worker worker})))
 
-(defn main
+(defn ^:export main
   []
   (init-app)
-  (r/render-component [app-component] (.-body js/document)))
+    (r/render-component [app-component] (.-body js/document)))
 
-(main)
+#_(main)

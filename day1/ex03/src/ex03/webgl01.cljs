@@ -42,11 +42,11 @@
          ;; draw left polygon
          (gl/draw-with-shader
           (update model :uniforms merge
-                  {:model (-> M44 (g/translate -0.48 0 0) (g/rotate t))
+                  {:model (-> M44 (g/translate [-0.48]) (g/rotate t))
                    :color [0 1 1 1]}))
          ;; draw right polygon
          (gl/draw-with-shader
           (update model :uniforms merge
-                  {:model (-> M44 (g/translate 0.48 0 0) (g/rotate (- (+ t (/ HALF_PI teeth)))))
+                  {:model (-> M44 (g/translate [0.48]) (g/rotate (- (+ t (/ HALF_PI teeth)))))
                    :color [0 1 0 1]})))
        true))))

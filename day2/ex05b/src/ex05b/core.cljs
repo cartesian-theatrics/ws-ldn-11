@@ -6,12 +6,13 @@
    [thi.ng.color.core :as col]
    [thi.ng.geom.core :as g]
    [thi.ng.geom.vector :as v]
-   [thi.ng.geom.matrix :as mat]
+   [thi.ng.geom.matrix :as mat :refer [M44]]
    [thi.ng.geom.gl.core :as gl]
    [thi.ng.geom.gl.webgl.constants :as glc]
    [thi.ng.geom.gl.webgl.animator :as anim]
    [thi.ng.geom.gl.shaders :as sh]
    [thi.ng.geom.gl.glmesh :as glm]
+   [thi.ng.geom.mesh.io :as mio]
    [thi.ng.glsl.core :as glsl :include-macros true]
    [thi.ng.glsl.vertex :as vertex]
    [reagent.core :as reagent]))
@@ -54,9 +55,9 @@
    :state    {:depth-test true}})
 
 (def meshes
-  [["../assets/suzanne.stl" "Blender Suzanne (788 KB)"]
-   ["../assets/deadpool.stl" "Deadpool (2 MB)"]
-   ["../assets/voxel.stl" "Voxel (11.2 MB)"]])
+  [["../../../assets/suzanne.stl" "Blender Suzanne (788 KB)"]
+   ["../../../assets/deadpool.stl" "Deadpool (2 MB)"]
+   ["../../../assets/voxel.stl" "Voxel (11.2 MB)"]])
 
 (defn trigger-mesh-change!
   [uri]
@@ -131,6 +132,7 @@
 (defn mesh-selecta
   []
   (let [sel (reaction (:selected-mesh @app))]
+    (print "wtf")
     (fn []
       [:select
        {:default-value @sel
@@ -146,7 +148,7 @@
 
 (defn main
   []
-  (let [worker (js/Worker. "js/meshworker.js")]
+  (let [worker (js/Worker. "bootstrap_meshworker.js")]
     (set! (.-onmessage worker) receive-mesh!)
     (swap! app assoc :worker worker)
     (reagent/render-component

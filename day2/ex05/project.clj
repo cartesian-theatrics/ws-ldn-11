@@ -4,6 +4,7 @@
 
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.8.51"]
+                 [javax.xml.bind/jaxb-api "2.4.0-b180830.0359"]
                  [thi.ng/strf "0.2.2"]
                  [reagent "0.5.1"]]
 
