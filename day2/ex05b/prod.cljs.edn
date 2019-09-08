@@ -1,0 +1,13 @@
+{:main ex05.core
+ :optimizations :advanced
+ :infer-externs true
+ :source-map true
+ :asset-path "/js"
+ :pretty-print  true
+ :output-to "resources/public/js/main.js"
+ :output-dir "resources/public/js"
+ :modules {:cljs-base {:output-to "resources/public/js/base.js"}
+           :app       {:output-to "resources/public/js/app.js"
+                       :entries #{"ex05.core"}}
+           :worker    {:output-to "resources/public/js/worker.js"
+                       :entries #{"ex05.worker"}}}}
