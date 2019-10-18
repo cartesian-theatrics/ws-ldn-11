@@ -1,1 +1,2 @@
-{:watch-dirs ["src"]}
+{:watch-dirs ["src"]
+ :ring-server-options {:port 9502}}
