@@ -124,7 +124,7 @@
         num     (:num @app)]
     (dom/create-dom!
      (svg/svg
-      {:width 640 :height 480}
+      {:width 840 :height 680}
       (svg/group
        {:id "particles" :stroke "none"}
        (map svg-particle (:particles (swap! app run-sim)))))
