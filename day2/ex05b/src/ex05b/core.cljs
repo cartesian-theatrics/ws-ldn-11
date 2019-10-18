@@ -132,7 +132,6 @@
 (defn mesh-selecta
   []
   (let [sel (reaction (:selected-mesh @app))]
-    (print "wtf")
     (fn []
       [:select
        {:default-value @sel
@@ -151,8 +150,7 @@
   (let [worker (js/Worker. "bootstrap_meshworker.js")]
     (set! (.-onmessage worker) receive-mesh!)
     (swap! app assoc :worker worker)
-    (reagent/render-component
-     [app-component]
-     (.getElementById js/document "app"))))
+    (reagent/render-component [app-component]
+                              (.getElementById js/document "app"))))
 
 (main)
