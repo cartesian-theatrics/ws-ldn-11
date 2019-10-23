@@ -40,7 +40,7 @@
   }"
    :uniforms {:view      :mat4
               :proj      :mat4
-              :model     [:mat4 M44]
+              :model     [:mat4 mat/M44]
               :normalMat [:mat4 (gl/auto-normal-matrix :model :view)]
               :col0      [:vec3 [0.3 0.3 0.3]]
               :col1      [:vec3 [1 1 1]]
@@ -54,9 +54,9 @@
    :state    {:depth-test true}})
 
 (def meshes
-  [["../assets/suzanne.stl" "Blender Suzanne (788 KB)"]
-   ["../assets/deadpool.stl" "Deadpool (2 MB)"]
-   ["../assets/voxel.stl" "Voxel (11.2 MB)"]])
+  [["assets/suzanne.stl" "Blender Suzanne (788 KB)"]
+   ["assets/deadpool.stl" "Deadpool (2 MB)"]
+   ["assets/voxel.stl" "Voxel (11.2 MB)"]])
 
 (defn trigger-mesh-change!
   [uri]
@@ -67,6 +67,7 @@
   [msg]
   (let [[vertices fnormals id tx] (.-data msg)
         num   (* id 9)
+        _ (js/console.log vertices)
         mesh  (thi.ng.geom.gl.glmesh.GLMesh.
                (js/Float32Array. vertices 0 num)
                (js/Float32Array. fnormals 0 num)
@@ -146,7 +147,7 @@
 
 (defn main
   []
-  (let [worker (js/Worker. "js/meshworker.js")]
+  (let [worker (js/Worker. "bootstrap_webworker.js")]
     (set! (.-onmessage worker) receive-mesh!)
     (swap! app assoc :worker worker)
     (reagent/render-component
