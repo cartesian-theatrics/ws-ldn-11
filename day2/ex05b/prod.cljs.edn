@@ -8,6 +8,6 @@
  :output-dir "resources/public/js"
  :modules {:cljs-base {:output-to "resources/public/js/compiled/out/base.js"}
            :app       {:output-to "resources/public/js/compiled/app.js"
-                       :entries #{"ex05b.core"}}
+                       :entries #{ex05b.core}}
            :worker    {:output-to "resources/public/js/compiled/out/meshworker.js"
-                       :entries #{"ex05b.meshworker"}}}}
+                       :entries #{ex05b.meshworker}}}}
