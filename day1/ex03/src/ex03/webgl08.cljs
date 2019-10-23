@@ -83,7 +83,7 @@
 
 (defn ^:export demo
   []
-  (let [gl    (gl/gl-context "main")
+  (let [gl    (gl/gl-context "main") 
         vrect (gl/get-viewport-rect gl)]
     (load-binary
      "suzanne.stl"
@@ -99,3 +99,5 @@
            (gl/draw-with-shader
             (assoc-in model [:uniforms :model] (arc/get-view (:cam @state))))))
        true))))
+
+(demo)

@@ -2,12 +2,13 @@
   (:require-macros
    [cljs-log.core :refer [debug info warn]])
   (:require
+   [thi.ng.geom.mesh.io :as mio]
    [thi.ng.math.core :as m]
    [thi.ng.geom.core :as g]
    [thi.ng.geom.matrix :as mat]
-   [thi.ng.geom.mesh.io :as mio]
    [thi.ng.geom.gl.glmesh :as glm]
    [thi.ng.strf.core :as f]))
+
 
 (defn load-binary
   [uri onload onerror]

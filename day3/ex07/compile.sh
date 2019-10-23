@@ -8,10 +8,11 @@
 # before first use (in our example this is done from CLJS in ex07.core/main)
 
 emcc -O2 -s ASM_JS=1 -s INVOKE_RUN=0 \
-     -s EXPORTED_FUNCTIONS="['_main','_initParticleSystem','_updateParticleSystem','_getNumParticles','_getParticleComponent','_getParticlesPointer']" \
+     -s EXPORTED_FUNCTIONS="['_initParticleSystem','_updateParticleSystem','_getNumParticles','_getParticleComponent','_getParticlesPointer']" \
+     -s EXTRA_EXPORTED_RUNTIME_METHODS="['ccall', 'cwrap']" \
      -s "EXPORT_NAME='Particles'" \
+     -s ASSERTIONS=1 \
      -s MODULARIZE=1 \
-     --memory-init-file 0 \
      --closure 1 \
      -o resources/public/js/native.js \
      particles.c

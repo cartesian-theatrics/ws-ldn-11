@@ -62,13 +62,13 @@
 (defn init-app
   "Initializes worker & stores handle in app state atom."
   []
-  (let [worker (js/Worker. "js/webworker_bootstrap.js")]
+  (let [worker (js/Worker. "js/compiled/out/worker.js")]
     (set! (.-onmessage worker) update-worker-state)
     (reset! app {:worker worker})))
 
-(defn main
+(defn ^:export main
   []
   (init-app)
-  (r/render-component [app-component] (.-body js/document)))
+    (r/render-component [app-component] (.-body js/document)))
 
 (main)

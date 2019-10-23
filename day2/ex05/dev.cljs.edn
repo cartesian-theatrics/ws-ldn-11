@@ -1,0 +1,15 @@
+{:optimizations :none
+ :source-map true
+ :asset-path "js/compiled/out"
+ :output-to "resources/public/js/compiled/app.js"
+ :output-dir "resources/public/js/compiled/out"
+ :verbose true
+ :source-map-timestamp true
+ :modules {:cljs-base
+           {:output-to "resources/public/js/compiled/out/base.js"}
+           :app
+           {:output-to "resources/public/js/compiled/app.js"
+            :entries   #{ex05b.core}}
+           :worker
+           {:output-to "resources/public/js/compiled/out/worker.js"
+            :entries   #{ex05b.worker}}}}

@@ -52,8 +52,7 @@
          :height (.-innerHeight js/window)}
         props)])}))
 
-(defn mode-selector
-  []
+(defn mode-selector []
   (let [mode (reaction (:mode @state/app))]
     (fn []
       [:select {:default-value @mode :on-change state/set-mode!}

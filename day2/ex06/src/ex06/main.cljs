@@ -54,10 +54,29 @@
         (fn [] (.stop stream) (set-stream-state! :error)))
   (set! (.-onended stream)
         (fn [] (.stop stream) (set-stream-state! :stopped)))
-  (set! (.-src video)
-        (.createObjectURL (or (aget js/window "URL") (aget js/window "webkitURL")) stream))
+  (set! (.-srcObject video)
+        stream)
   (set-stream-state! :ready)
   (init-video-texture video))
+
+(comment
+  (def video (dom/create-dom!
+              [:video {:width 100 :height 100 :hidden true :autoplay true}]
+              (.-body js/document)))
+  (def mdev  (aget js/navigator "mediaDevices"))
+  (def stream (.getUserMedia mdev #js{:video true}))
+  (def url (aget js/window "URL"))
+  (.createObjectURL (aget js/window "URL") stream)
+
+  (-> mdev
+      (.getUserMedia #js {:video true})
+      (.then #(activate-rtc-stream video %))
+      (.catch (fn [err]
+                (js/console.log "Failed to activate rtc stream: " err)
+                (set-stream-state! :forbidden))))
+  (.createObjectURL (aget js/window "URL") )
+
+  )
 
 (defn init-rtc-stream
   [w h]
@@ -70,7 +89,9 @@
       (-> mdev
           (.getUserMedia #js {:video true})
           (.then #(activate-rtc-stream video %))
-          (.catch #(set-stream-state! :forbidden)))
+          (.catch (fn [err]
+                    (js/console.error "Failed to activate rtc stream: " err)
+                    (set-stream-state! :forbidden))))
 
       (aget js/navigator "webkitGetUserMedia")
       (.webkitGetUserMedia js/navigator #js {:video true}

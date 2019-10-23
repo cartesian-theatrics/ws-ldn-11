@@ -1,0 +1,4 @@
+{:main ex01.core
+ :output-to "resources/public/js/compiled/app.js"
+ :optimizations :advanced
+ :pretty-print false}
