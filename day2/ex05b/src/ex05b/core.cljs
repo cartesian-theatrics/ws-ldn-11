@@ -55,9 +55,9 @@
    :state    {:depth-test true}})
 
 (def meshes
-  [["../../../assets/suzanne.stl" "Blender Suzanne (788 KB)"]
-   ["../../../assets/deadpool.stl" "Deadpool (2 MB)"]
-   ["../../../assets/voxel.stl" "Voxel (11.2 MB)"]])
+  [["assets/suzanne.stl" "Blender Suzanne (788 KB)"]
+   ["assets/deadpool.stl" "Deadpool (2 MB)"]
+   ["assets/voxel.stl" "Voxel (11.2 MB)"]])
 
 (defn trigger-mesh-change!
   [uri]
