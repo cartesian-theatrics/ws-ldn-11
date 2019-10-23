@@ -1,6 +1,7 @@
-{:main ex03.webgl08
+{:optimizations :simple
+ :source-map true
  :asset-path "js/compiled/out"
  :output-to "resources/public/js/compiled/app.js"
  :output-dir "resources/public/js/compiled/out"
- :optimizations :advanced
- :pretty-print true}
+ :verbose true
+ :source-map-timestamp true}
